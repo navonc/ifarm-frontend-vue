@@ -1,0 +1,123 @@
+// 主题样式定义
+
+// 明亮模式（默认）
+:root,
+.right {
+
+  // 主色调 - 薄荷绿
+  --el-color-primary: #52c41a;
+  --el-color-primary-light-3: #73d13d;
+  --el-color-primary-light-5: #95de64;
+  --el-color-primary-light-7: #b7eb8f;
+  --el-color-primary-light-8: #d9f7be;
+  --el-color-primary-light-9: #f6ffed;
+  --el-color-primary-dark-2: #389e0d;
+
+  // 成功色
+  --el-color-success: #52c41a;
+  --el-color-success-light-3: #73d13d;
+  --el-color-success-light-5: #95de64;
+  --el-color-success-light-7: #b7eb8f;
+  --el-color-success-light-8: #d9f7be;
+  --el-color-success-light-9: #f6ffed;
+
+  // 背景色
+  --el-bg-color: #ffffff;
+  --el-bg-color-page: #f5f7fa;
+  --el-bg-color-overlay: #ffffff;
+
+  // 文字颜色
+  --el-text-color-primary: #303133;
+  --el-text-color-regular: #606266;
+  --el-text-color-secondary: #909399;
+  --el-text-color-placeholder: #a8abb2;
+  --el-text-color-disabled: #c0c4cc;
+
+  // 边框颜色
+  --el-border-color: #dcdfe6;
+  --el-border-color-light: #e4e7ed;
+  --el-border-color-lighter: #ebeef5;
+  --el-border-color-extra-light: #f2f6fc;
+  --el-border-color-dark: #d4d7de;
+  --el-border-color-darker: #cdd0d6;
+
+  // 填充色
+  --el-fill-color: #f0f2f5;
+  --el-fill-color-light: #f5f7fa;
+  --el-fill-color-lighter: #fafafa;
+  --el-fill-color-extra-light: #fafcff;
+  --el-fill-color-dark: #ebedf0;
+  --el-fill-color-darker: #e6e8eb;
+  --el-fill-color-blank: #ffffff;
+
+  // 阴影
+  --el-box-shadow: 0 12px 32px 4px rgba(0, 0, 0, 0.04), 0 8px 20px rgba(0, 0, 0, 0.08);
+  --el-box-shadow-light: 0 0 12px rgba(0, 0, 0, 0.12);
+  --el-box-shadow-lighter: 0 0 6px rgba(0, 0, 0, 0.12);
+  --el-box-shadow-dark: 0 16px 48px 16px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.16);
+}
+
+// 黑暗模式
+.dark {
+  // 背景色
+  --el-bg-color: #1d1e1f;
+  --el-bg-color-page: #0a0a0a;
+  --el-bg-color-overlay: #1d1e1f;
+
+  // 文字颜色
+  --el-text-color-primary: #e5eaf3;
+  --el-text-color-regular: #cfd3dc;
+  --el-text-color-secondary: #a3a6ad;
+  --el-text-color-placeholder: #8d9095;
+  --el-text-color-disabled: #6c6e72;
+
+  // 边框颜色
+  --el-border-color: #4c4d4f;
+  --el-border-color-light: #414243;
+  --el-border-color-lighter: #363637;
+  --el-border-color-extra-light: #2b2b2c;
+  --el-border-color-dark: #58585b;
+  --el-border-color-darker: #636466;
+
+  // 填充色
+  --el-fill-color: #2b2b2c;
+  --el-fill-color-light: #262727;
+  --el-fill-color-lighter: #1d1e1f;
+  --el-fill-color-extra-light: #191a1b;
+  --el-fill-color-dark: #313233;
+  --el-fill-color-darker: #363637;
+  --el-fill-color-blank: #1d1e1f;
+
+  // 阴影
+  --el-box-shadow: 0 12px 32px 4px rgba(0, 0, 0, 0.36), 0 8px 20px rgba(0, 0, 0, 0.72);
+  --el-box-shadow-light: 0 0 12px rgba(0, 0, 0, 0.72);
+  --el-box-shadow-lighter: 0 0 6px rgba(0, 0, 0, 0.72);
+  --el-box-shadow-dark: 0 16px 48px 16px rgba(0, 0, 0, 0.72), 0 12px 32px rgba(0, 0, 0, 0.84), 0 8px 16px -8px rgba(0, 0, 0, 0.9);
+}
+
+// 主题切换动画
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+// 滚动条主题适配
+.dark {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--el-fill-color-lighter);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--el-fill-color-dark);
+    border-radius: 3px;
+
+    &:hover {
+      background: var(--el-fill-color-darker);
+    }
+  }
+}
