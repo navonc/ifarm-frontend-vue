@@ -17,6 +17,51 @@ const routes = [
     name: "Login",
     component: () => import("@/views/login/index.vue"),
   },
+  {
+    path: "/layout",
+    name: "Layout",
+    component: () => import("@/layout/index.vue"),
+    children: [
+      {
+        path: "/dashboard",
+        name: "Dashboard",
+        component: () => import("@/views/dashboard/index.vue"),
+        meta: {
+          title: "仪表盘",
+          icon: "user",
+        },
+      },
+      {
+        path: "/system",
+        name: "System",
+        meta: {
+          title: "系统管理",
+          icon: "setting",
+        },
+        redirect: "/system/user",
+        children: [
+          {
+            path: "/system/user",
+            name: "User",
+            component: () => import("@/views/system/user/index.vue"),
+            meta: {
+              title: "用户管理",
+              icon: "user",
+            },
+          },
+          {
+            path: "/system/role",
+            name: "Role",
+            component: () => import("@/views/system/role/index.vue"),
+            meta: {
+              title: "角色管理",
+              icon: "user",
+            },
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 const router = createRouter({

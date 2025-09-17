@@ -10,6 +10,8 @@ export const useAppStore = defineStore("app", {
         isDark: false,
         // 是否移动端
         isMobile: false,
+        // 底部菜单栏
+        footer: false,
     }),
     getters: {},
     actions: {
@@ -20,6 +22,6 @@ export const useAppStore = defineStore("app", {
     persist: {
         key: 'app',
         storage: localStorage,
-        paths: ['isCollapse', 'isDark', 'isMobile'],
+        paths: ['isCollapse', 'isDark', 'isMobile', 'footer'],
     }
 })
