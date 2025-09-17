@@ -1,7 +1,8 @@
 // 用户状态管理
 
 import { defineStore } from "pinia";
-import { logout } from "../../api/auth";
+import { logout,login  } from "@/api/auth";
+import { getUserInfo } from "@/api/user";
 
 export const useUserStore = defineStore("user", {
   state: () => ({
@@ -35,6 +36,17 @@ export const useUserStore = defineStore("user", {
       this.roles = [];
       this.permissions = [];
     },
+    async login(data) {
+        try {
+            const res = await login(data)
+            this.token = res.data.token
+            this.userInfo = res.data.userInfo
+            this.roles = res.data.roles
+            this.permissions = res.data.permissions
+        } catch (error) {
+            console.log(error);
+        }
+    },
     async logout() {
       try {
         await logout();
@@ -44,6 +56,16 @@ export const useUserStore = defineStore("user", {
         this.resetState();
       }
     },
+    async fetchUserInfo() {
+        try {
+            const res = await getUserInfo()
+            this.userInfo = res.data
+            this.roles = res.data.roles
+            this.permissions = res.data.permissions
+        } catch (error) {
+            console.log(error)
+        }
+    }
   },
   persist: {
     key: "user",

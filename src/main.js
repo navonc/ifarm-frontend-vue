@@ -1,9 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-
-
-
 // 导入Element Plus
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
@@ -14,6 +11,9 @@ import pinia from '@/store'
 
 // 导入路由
 import router from '@/router'
+
+// 导入路由守卫
+import '@/router/guard'
 
 // 全局样式
 import '@/styles/main.scss'

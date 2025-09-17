@@ -20,6 +20,7 @@ const routes = [
   {
     path: "/layout",
     name: "Layout",
+    redirect: "/dashboard",
     component: () => import("@/layout/index.vue"),
     children: [
       {
@@ -28,7 +29,7 @@ const routes = [
         component: () => import("@/views/dashboard/index.vue"),
         meta: {
           title: "仪表盘",
-          icon: "user",
+          icon: "odometer",
         },
       },
       {
@@ -60,8 +61,26 @@ const routes = [
           },
         ],
       },
+      {
+        path: '/profile',
+        name: 'Profile',
+        component: () => import('@/views/profile/index.vue'),
+        meta: {
+          title: '个人中心',
+          hidden: true
+        }
+      }
     ],
   },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: () => import('@/views/error/403.vue'),
+    meta: {
+      title: '页面不存在',
+      hidden: true
+    }
+  }
 ];
 
 const router = createRouter({

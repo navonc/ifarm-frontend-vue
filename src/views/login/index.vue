@@ -110,17 +110,20 @@ onMounted(() => {
 
 const handleLogin = async () => { 
     try {
-        const data = await login({
+        // const data = await login({
+        //     username: loginForm.value.username,
+        //     password: loginForm.value.password
+        // })
+        
+        await userStore.login({
             username: loginForm.value.username,
             password: loginForm.value.password
         })
-        
-        
         // 登入成功保存信息
-        userStore.setToken(data.token)
-        userStore.setUserInfo(data.userInfo)
-        userStore.setRoles(data.roles)
-        userStore.setPermissions(data.permissions)
+        // userStore.setToken(data.token)
+        // userStore.setUserInfo(data.userInfo)
+        // userStore.setRoles(data.roles)
+        // userStore.setPermissions(data.permissions)
 
         if (loginForm.value.rememberme) {
             localStorage.setItem("login_save_username", loginForm.value.username)
@@ -131,7 +134,7 @@ const handleLogin = async () => {
         }
 
         ElMessage.success("登录成功")
-        router.push("/home")
+        router.push("/layout")
     } catch (error) { 
         console.log(error)
         router.push("/login")

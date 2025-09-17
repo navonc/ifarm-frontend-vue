@@ -52,7 +52,7 @@ service.interceptors.response.use(
 
     // 统一处理
     if (status === 200 && data.code === 200) {
-      return data.data;
+      return data;
     } else {
       log.error(data.message);
       ELMessage.error(data.message);

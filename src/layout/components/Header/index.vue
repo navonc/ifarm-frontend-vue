@@ -7,7 +7,7 @@
                 </el-icon>
             </div>
 
-            <el-breadcrumb separator="/" class="header-breadcrumb">
+            <el-breadcrumb separator="/" class="breadcrumb">
                 <el-breadcrumb-item
                     v-for="item in breadcrumbList"
                     :key="item.path"
@@ -121,7 +121,7 @@ const breadcrumbList = computed(() => {
 const handleCommand = async (command) => {
     switch (command) {
         case 'profile':
-            ElMessage.info('跳转到个人信息页面')
+            router.push('/profile')
             break
         case 'settings':
             ElMessage.info('跳转到设置页面')
@@ -134,9 +134,17 @@ const handleCommand = async (command) => {
 
 // 处理登出
 const handleLogout = async () => {
-    userStore.logout()
-    ElMessage.success('登出成功')
-    router.push('/login')
+    try {
+        await userStore.logout()
+        ElMessage.success('登出成功')
+        router.push('/login')
+    } catch (error) {
+        console.log(error)
+        ElMessage.error('登出失败')
+    } finally {
+        userStore.resetStore()
+        router.push('/login')
+    }
 };
 
 
@@ -202,7 +210,9 @@ const handleLogout = async () => {
 
     .header {
         .header-left {
-
+            .breadcrumb { 
+                display: none;
+            }
         }
 
         .header-right {
@@ -214,6 +224,10 @@ const handleLogout = async () => {
                 }
             }
         }
+    }
+
+    .header-icon {
+        margin-right: 0px;
     }
 }
 
